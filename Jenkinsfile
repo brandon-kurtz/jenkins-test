@@ -22,8 +22,8 @@ ls -lah
     stage('Deploy') {
       steps {
         echo 'Deploying....'
-        retry(count: 3) {
-          sh 'sh \'doesntexist.sh\''
+        timeout(time: 1, unit: 'MINUTES') {
+          sh 'sh "health-check.sh"'
         }
 
       }
