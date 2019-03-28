@@ -30,7 +30,7 @@ ls -lah
     }
   }
   environment {
-    key = credentials('jenkins-aws-secret-access-key')
+    AWS_ACCESS_KEY_ID = credentials('key')
   }
   post {
     always {
