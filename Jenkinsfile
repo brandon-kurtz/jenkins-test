@@ -5,6 +5,10 @@ pipeline {
     }
 
   }
+  environment {
+    AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+    AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+  }
   stages {
     stage('Build') {
       steps {
@@ -45,4 +49,5 @@ ls -lah
       echo 'This will run only if the state of the Pipeline has changed'
       echo 'For example, if the Pipeline was previously failing but is now successful'
     }
+  }
 }
